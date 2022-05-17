@@ -24,5 +24,6 @@ urlpatterns = [
     path('show_ticket', views.show_ticket),
     path('delete_order',views.delete_order),
     path('show_self_order', views.show_self_order),
-    path('lock_order', views.lock_order)
+    path('lock_order', views.lock_order),
+    path('search', views.search)
 ]

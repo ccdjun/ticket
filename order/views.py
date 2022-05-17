@@ -125,4 +125,13 @@ def lock_order(request):
             return JsonResponse({'status': 200, 'data': '抢票失败'})
 
 
+def search(request):
+    data_list = []
+    target = request.GET.get('target')
+    source = request.GET.get('source')
+    info = Ticket.objects.filter(target=target, source=source).values()
+    for data in info:
+        data_list.append(data)
+    return JsonResponse({'status': 200, 'data': data_list})
+
 
