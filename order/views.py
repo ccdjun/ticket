@@ -135,3 +135,34 @@ def search(request):
     return JsonResponse({'status': 200, 'data': data_list})
 
 
+def modify_num(request):
+    if request.method == 'POST':
+        try:
+            num = request.POST.get('num')
+            ticket_id = request.POST.get('ticket_id')
+            if int(num) >= 0:
+                ticket = Ticket.objects.get(id=ticket_id)
+                ticket.num = int(num)
+                ticket.save()
+                return JsonResponse({'status': 200, 'data': '修改成功'})
+        except Exception as e:
+            return JsonResponse({'status': 400, 'data': '修改失败'})
+
+
+def Bi_num(request):
+    city_list = Order.objects.values('target')
+    sum_list = []
+    data_list = []
+    c_list = []
+    d_list = []
+    for city in city_list:
+        sum_list.append(city.get('target'))
+    for item in set(sum_list):
+        # data_list.append({'address':item, 'num': sum_list.count(item)})
+        c_list.append(item)
+        d_list.append(sum_list.count(item))
+
+    return JsonResponse({'status': 200, 'data': {'city':c_list, 'num': d_list}})
+
+
+

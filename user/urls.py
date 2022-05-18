@@ -22,5 +22,6 @@ urlpatterns = [
     path('login', views.login),
     path('modify', views.modify),
     path('show_user',views.show_user),
-    path('show_self',views.show_self)
+    path('show_self',views.show_self),
+    path('show_user_status',views.show_user_status)
 ]

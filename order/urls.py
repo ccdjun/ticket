@@ -25,5 +25,7 @@ urlpatterns = [
     path('delete_order',views.delete_order),
     path('show_self_order', views.show_self_order),
     path('lock_order', views.lock_order),
-    path('search', views.search)
+    path('search', views.search),
+    path('modify_num',views.modify_num),
+    path('bi', views.Bi_num)
 ]

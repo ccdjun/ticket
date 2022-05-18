@@ -63,6 +63,7 @@ def show_user(request):
         data_list.append(user)
     return JsonResponse({'status': 200, 'data': data_list})
 
+
 def show_self(request):
     user_id = request.GET.get('user_id')
     data_list = []
@@ -74,6 +75,12 @@ def show_self(request):
     }
     data_list.append(data)
     return JsonResponse({'status': 200, 'data':data_list})
+
+
+def show_user_status(request):
+    user_id = request.GET.get('user_id')
+    user_status = User.objects.get(id=user_id).user_status
+    return JsonResponse({'status':200,'user_status': user_status})
 
 
 
