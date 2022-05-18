@@ -6,6 +6,8 @@ class Ticket(models.Model):
     source = models.CharField('出发地', max_length=10)
     target = models.CharField('目的地', max_length=10)
     num = models.IntegerField('余票数量', max_length=20)
+    begin = models.CharField('出发时间',max_length=20,null=True)
+    end = models.CharField('到达时间',max_length=20, null=True)
 
 
 class Order(models.Model):

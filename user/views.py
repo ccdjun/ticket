@@ -50,6 +50,7 @@ def modify(request):
                 user.email = email
                 user.save()
                 return JsonResponse({'status': 200, 'mes': '修改成功'})
+            return JsonResponse({'status': 400, 'mes': '修改失败'})
         except Exception as e:
             print(e)
             return JsonResponse({'status': 400, 'mes': '失败'})

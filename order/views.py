@@ -25,7 +25,9 @@ def add_ticket(requets):
         source = requets.POST.get('source')
         target = requets.POST.get('target')
         num = requets.POST.get('num')
-        ticket = Ticket.objects.create(source=source, target=target, num=num)
+        begin = requets.POST.get('begin')
+        end = requets.POST.get('end')
+        ticket = Ticket.objects.create(source=source, target=target, num=num, begin=begin, end=end)
         ticket.save()
         return JsonResponse({'status':200})
 
